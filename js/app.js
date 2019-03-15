@@ -27,19 +27,17 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-class Hero(){
-  constructor(){
-    this.x = 0;
-    this.y = 0;
-    this.sprite = 'images/char-boy.png';
-  }
-  render(){
+var Hero = function(x,y){
+  this.x = 0;
+  this.y = 0;
+  this.sprite = 'images/char-boy.png';
+};
+
+Hero.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
+};
 
-}
-
-const player = new Hero();
+var player = new Hero(0,0);
 
 
 // Now instantiate your objects.
