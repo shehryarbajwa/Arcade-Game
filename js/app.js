@@ -39,6 +39,8 @@ class Hero(){
 
 }
 
+const player = new Hero();
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
