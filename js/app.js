@@ -44,7 +44,22 @@ var player = new Hero(0,0);
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
+Hero.prototype.handleInput = function(input){
+  switch (input) {
+    case 'left':
+          this.x -= 20;
+      break;
+    case 'right':
+          this.x += 20;
+      break;
+    case 'up':
+          this.y -= 20;
+      break;
+    case 'down':
+          this.y += 20;
+      break;
+  }
+};
 
 
 // This listens for key presses and sends the keys to your
@@ -59,20 +74,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-Hero.prototype.handleInput(input){
-  switch (input) {
-    case 'left':
-          this.x -= 20
-      break;
-    case 'right':
-          this.x += 20;
-      break;
-    case 'up':
-          this.y -= 20;
-      break;
-    case 'down':
-          this.y += 20;
-      break;
-  }
-};
