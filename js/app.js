@@ -37,6 +37,7 @@ Hero.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+
 var player = new Hero(0,0);
 
 
@@ -58,3 +59,20 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+Hero.prototype.handleInput(input){
+  switch (input) {
+    case 'left':
+          this.x -= 20
+      break;
+    case 'right':
+          this.x += 20;
+      break;
+    case 'up':
+          this.y -= 20;
+      break;
+    case 'down':
+          this.y += 20;
+      break;
+  }
+};
