@@ -32,6 +32,10 @@ var Hero = function(x,y){
   this.y = 0;
   this.xaxismove = 101;
   this.yaxismove = 83;
+  this.xaxisstart = 2 * this.xaxismove;
+  this.yaxisstart = 2 * this.yaxismove;
+  this.x = this.xaxisstart;
+  this.y = this.yaxisstart;
   this.sprite = 'images/char-boy.png';
 };
 
