@@ -27,7 +27,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Hero = function(x,y, xaxismove, yaxismove){
+var Hero = function(x,y){
   this.x = 0;
   this.y = 0;
   this.xaxismove = 101;
@@ -49,16 +49,16 @@ var player = new Hero(0,0);
 Hero.prototype.handleInput = function(input){
   switch (input) {
     case 'left':
-          this.x -= 20;
+          this.x -= this.xaxismove;
       break;
     case 'right':
-          this.x += 20;
+          this.x += this.xaxismove;
       break;
     case 'up':
-          this.y -= 20;
+          this.y -= this.yaxismove;
       break;
     case 'down':
-          this.y += 20;
+          this.y += this.yaxismove;
       break;
   }
 };
