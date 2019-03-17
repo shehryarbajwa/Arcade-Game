@@ -33,7 +33,7 @@ var Hero = function(x,y){
   this.xaxismove = 101;
   this.yaxismove = 83;
   this.xaxisstart = 2 * this.xaxismove;
-  this.yaxisstart = 2 * this.yaxismove;
+  this.yaxisstart = 5 * this.yaxismove;
   this.x = this.xaxisstart;
   this.y = this.yaxisstart;
   this.sprite = 'images/char-boy.png';
@@ -53,10 +53,14 @@ var player = new Hero(0,0);
 Hero.prototype.handleInput = function(input){
   switch (input) {
     case 'left':
-          this.x -= this.xaxismove;
+          if(this.x > 0){
+            this.x -= this.xaxismove;
+          }
       break;
     case 'right':
+          if(this.x < this.xaxismove * 5){
           this.x += this.xaxismove;
+        }
       break;
     case 'up':
           this.y -= this.yaxismove;
