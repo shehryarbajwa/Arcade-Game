@@ -30,7 +30,7 @@ Enemy.prototype.render = function() {
 var Hero = function(x,y){
   this.x = 0;
   this.y = 0;
-  this.xaxismove = 101;
+  this.xaxismove = 15;
   this.yaxismove = 83;
   this.xaxisstart = 2 * this.xaxismove;
   this.yaxisstart = 5 * this.yaxismove;
@@ -58,15 +58,19 @@ Hero.prototype.handleInput = function(input){
           }
       break;
     case 'right':
-          if(this.x < this.xaxismove * 5){
+          if(this.x < this.xaxismove * 4){
           this.x += this.xaxismove;
         }
       break;
     case 'up':
-          this.y -= this.yaxismove;
+          if(this.y > 0){
+            this.y -= this.yaxismove;
+          }
       break;
     case 'down':
-          this.y += this.yaxismove;
+          if(this.y < this.yaxismove * 5){
+            this.y += this.yaxismove;
+          }
       break;
   }
 };
