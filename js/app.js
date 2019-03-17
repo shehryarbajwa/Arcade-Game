@@ -1,14 +1,18 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x,y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     //X and y position
-    this.x = 0;
-    this.y = 0;
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.xaxismove = 101;
+    this.boundary = this.xaxismove * 5;
+    this.resetPos = -this.step;
 };
 
 // Update the enemy's position, required method for game
@@ -17,6 +21,11 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if(this.x < this.xaxismove * 4){
+      this.x += this.speed * dt;
+    } else {
+      this.x = this.resetPos;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -35,7 +44,7 @@ var Hero = function(x,y){
   this.xaxismove = 101;
   this.yaxismove = 83;
   this.xaxisstart = 2 * this.xaxismove;
-  this.yaxisstart = 5 * this.yaxismove;
+  this.yaxisstart = (5 * this.yaxismove);
 
   this.x = this.xaxisstart;
   this.y = this.yaxisstart;
@@ -50,9 +59,12 @@ Hero.prototype.render = function() {
 
 
 var player = new Hero(0,0);
-var enemy = new Enemy();
+var enemy = new Enemy(-100,30,200);
+var enemy2 = new Enemy(-101,83,180);
+var enemy3 = new Enemy((-100*2.5),83,175);
+var enemy4 = new Enemy((-100*3), 0,177);
 const allEnemies = [];
-allEnemies.push(enemy);
+allEnemies.push(enemy, enemy2, enemy3, enemy4);
 
 
 
@@ -83,6 +95,16 @@ Hero.prototype.handleInput = function(input){
       break;
   }
 };
+
+Hero.prototype.update = function(){
+
+  for (let enemy of allEnemies){
+    if(this.y === enemy.y){
+      console.log("collision");
+    }
+    console.log(this.y, enemy.y);
+  }
+}
 
 
 // This listens for key presses and sends the keys to your
