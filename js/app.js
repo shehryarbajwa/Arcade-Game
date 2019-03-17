@@ -3,7 +3,8 @@ var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     //X and y position
-
+    this.x = 0;
+    this.y = 0;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -49,6 +50,10 @@ Hero.prototype.render = function() {
 
 
 var player = new Hero(0,0);
+var enemy = new Enemy();
+const allEnemies = [];
+allEnemies.push(enemy);
+
 
 
 // Now instantiate your objects.
