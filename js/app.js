@@ -30,6 +30,16 @@ Enemy.prototype.render = function() {
 var Hero = function(x,y){
   this.x = 0;
   this.y = 0;
+
+  this.xaxismove = 101;
+  this.yaxismove = 83;
+  this.xaxisstart = 2 * this.xaxismove;
+  this.yaxisstart = 5 * this.yaxismove;
+
+  this.x = this.xaxisstart;
+  this.y = this.yaxisstart;
+
+
   this.sprite = 'images/char-boy.png';
 };
 
