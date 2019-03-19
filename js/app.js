@@ -60,9 +60,9 @@ Hero.prototype.render = function() {
 
 
 var player = new Hero(0,0);
-var enemy = new Enemy(-100,30,200);
-var enemy2 = new Enemy(-101,83,180);
-var enemy3 = new Enemy((-100*2.5),83,175);
+var enemy = new Enemy(-100,30,150);
+var enemy2 = new Enemy(-101,83,150);
+var enemy3 = new Enemy((-100*2.5),83,150);
 const allEnemies = [];
 allEnemies.push(enemy, enemy2, enemy3);
 
@@ -96,6 +96,26 @@ Hero.prototype.handleInput = function(input){
   }
 };
 
+class Modal {
+ constructor(overlay) {
+   this.overlay = overlay;
+   const closeButton = overlay.querySelector('.button-close')
+   closeButton.addEventListener('click', this.close.bind(this));
+   overlay.addEventListener('click', e => {
+     if (e.srcElement.id === this.overlay.id) {
+       this.close();
+     }
+   });
+ }
+ open() {
+   this.overlay.classList.remove('is-hidden');
+ }
+
+ close() {
+   this.overlay.classList.add('is-hidden');
+ }
+}
+
 
 Hero.prototype.reset = function(){
   this.x = this.xaxisstart;
@@ -105,7 +125,7 @@ Hero.prototype.reset = function(){
 Hero.prototype.update = function(){
 
   for (let enemy of allEnemies){
-    if(this.y === enemy.y && (enemy.x + enemy.xaxismove/2 < this.x && enemy.x < this.x + this.xaxismove/2)){
+    if(this.y === enemy.y && (enemy.x + enemy.xaxismove/2 > this.x && enemy.x < this.x + this.xaxismove/2)){
       this.reset();
     }
   }
