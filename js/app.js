@@ -4,7 +4,7 @@ var Enemy = function(x,y, speed) {
     // we've provided one for you to get started
     //X and y position
     this.x = x;
-    this.y = y;
+    this.y = y + 55;
     this.speed = speed;
 
     // The image/sprite for our enemies, this uses
@@ -12,7 +12,7 @@ var Enemy = function(x,y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.xaxismove = 101;
     this.boundary = this.xaxismove * 5;
-    this.resetPos = -this.step;
+    this.resetPos = -this.xaxismove;
 };
 
 // Update the enemy's position, required method for game
@@ -44,10 +44,11 @@ var Hero = function(x,y){
   this.xaxismove = 101;
   this.yaxismove = 83;
   this.xaxisstart = 2 * this.xaxismove;
-  this.yaxisstart = (5 * this.yaxismove);
+  this.yaxisstart = (4 * this.yaxismove) + 55;
 
   this.x = this.xaxisstart;
   this.y = this.yaxisstart;
+  this.victory = false;
 
 
   this.sprite = 'images/char-boy.png';
@@ -62,9 +63,8 @@ var player = new Hero(0,0);
 var enemy = new Enemy(-100,30,200);
 var enemy2 = new Enemy(-101,83,180);
 var enemy3 = new Enemy((-100*2.5),83,175);
-var enemy4 = new Enemy((-100*3), 0,177);
 const allEnemies = [];
-allEnemies.push(enemy, enemy2, enemy3, enemy4);
+allEnemies.push(enemy, enemy2, enemy3);
 
 
 
@@ -96,16 +96,23 @@ Hero.prototype.handleInput = function(input){
   }
 };
 
+
+Hero.prototype.reset = function(){
+  this.x = this.xaxisstart;
+  this.y = this.yaxisstart;
+}
+
 Hero.prototype.update = function(){
 
   for (let enemy of allEnemies){
-    if(this.y === enemy.y){
-      console.log("collision");
+    if(this.y === enemy.y && (enemy.x + enemy.xaxismove/2 < this.x && enemy.x < this.x + this.xaxismove/2)){
+      this.reset();
     }
-    console.log(this.y, enemy.y);
+  }
+  if(this.y === 55){
+    this.victory = true;
   }
 }
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
