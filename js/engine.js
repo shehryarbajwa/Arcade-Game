@@ -25,8 +25,8 @@ var Engine = (function(global) {
         lastTime,
         id;
 
-        const modal = document.querySelector('.modal-bg');
-        const replay = document.querySelector('.modal-button');
+        const modal = document.querySelector('.modal_background');
+        const replay = document.querySelector('.modal_replay');
 
         canvas.width = 505;
         canvas.height = 606;
