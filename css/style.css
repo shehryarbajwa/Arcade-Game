@@ -1,3 +1,11 @@
 body {
     text-align: center;
 }
+
+.modal_background{
+  background-color: #2F9856;
+}
+
+.hide{
+  display: none;
+}

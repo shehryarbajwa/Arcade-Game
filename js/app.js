@@ -4,7 +4,7 @@ var Enemy = function(x,y, speed) {
     // we've provided one for you to get started
     //X and y position
     this.x = x;
-    this.y = y + 55;
+    this.y = y + 50;
     this.speed = speed;
 
     // The image/sprite for our enemies, this uses
@@ -44,7 +44,7 @@ var Hero = function(x,y){
   this.xaxismove = 101;
   this.yaxismove = 83;
   this.xaxisstart = 2 * this.xaxismove;
-  this.yaxisstart = (4 * this.yaxismove) + 55;
+  this.yaxisstart = (4 * this.yaxismove) + 50;
 
   this.x = this.xaxisstart;
   this.y = this.yaxisstart;
@@ -109,7 +109,7 @@ Hero.prototype.update = function(){
       this.reset();
     }
   }
-  if(this.y === 55){
+  if(this.y === 50){
     this.victory = true;
   }
 }
