@@ -18,3 +18,11 @@ For detailed instructions on how to get started, check out this [guide](https://
 ## Contributing
 
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+
+The game is initialized with a game board that displays 5 rows of images. The game play requires the player to cross the river
+
+We start off the project with creating a Hero function with multiple properties that start with its x and y coordinates. We render this image to the board to select the hero on the screen. Then we initialize properties that the player will use to move sideways and vertically. Once we have these properties, we then create a function to handle the keyboard input of the user. The player's directions are controlled by the keyboard entries. 
+
+Then we utilize the Enemy function and create properties for the enemies. The properties include the x and y coordinates, the location where they will appear from and the relative speed of the enemies in their attempt to stop the user from reaching the river
+
+Once the river is reached successfuly without a collision with the enemies, a modal appears to congratulate the player and asks whether the user wants to attempt again or cancel.
