@@ -1,9 +1,10 @@
 body {
     text-align: center;
+    background-color: rgb(140, 182, 168);
 }
 
 .modal_background{
-  background-color: #2F9856;
+  background-color: blue;
 }
 
 .hide{
